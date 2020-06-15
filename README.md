@@ -1,22 +1,22 @@
 # 😷️ Dados da SICO-eVM (plataforma de vigilância da mortalidade)
 
-## 🤔 Contexto: 
+## 🤔 Contexto
 Os dados de mortalidade têm uma extrema importância para entender o impacto da pandemia do COVID-19 em Portugal. No [Sistema de Informação dos Certificados de Óbito - e-Vigilância de Mortalidade](SICO-eVM - https://evm.min-saude.pt/) são disponibilizados dados sobre a mortalidade em Portugal, mas sem uma estrutura e dicionário de dados associados.
 
 Mais informações disponíveis no issue #48.
 
-## 🥅 Objetivo:
+## 🥅 Objetivo
 Criar uma pipeline de extração diária de dados do portal SICO-eVM com um dicionário de dados associados.
 
-## 👥 Equipa:
+## 👥 Equipa
 * [Nuno Pires](https://github.com/piresn)
 * [Paulo Silva](https://github.com/paulo-jsilva)
 * [Filipe Barroso](https://github.com/OldMetalmind)
 
-## 🎯 Resultado final esperado: 
+## 🎯 Resultado final esperado
 Criação de um conjunto de ficheiros `.csv` e dicionários de dados com fontes que os voluntários considerem relevantes para estudos do impacto do COVID-19 na mortalidade em Portugal.
 
-## 🧱 Principais etapas:
+## 🧱 Principais etapas
 - Criar um script para extração de dados para um ficheiro `.csv com dados que considerem relevantes do portal SICO-eVM 
     - Mortalidade Geral, Portugal
     - Mortalidade por região de saúde
