@@ -1,0 +1,6 @@
+name: evm
+channels:
+  - conda-forge
+dependencies:
+  - pandas
+  - jupyterlab
