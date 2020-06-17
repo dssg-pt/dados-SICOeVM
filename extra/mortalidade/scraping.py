@@ -4,10 +4,6 @@ import re
 from numpy import nan
 import pandas as pd
 
-months = {'Jan': '01', 'Fev': '02', 'Mar': '03', 'Abr': '04',
-          'Mai': '05', 'Jun': '06', 'Jul': '07', 'Ago': '08',
-          'Set': '09', 'Out': '10', 'Nov': '11', 'Dez': '12'}
-
 
 def get_data(section):
     """
@@ -40,6 +36,24 @@ def parse_single_tab(text):
     return df
 
 
+def clean_datas(mmdd, year):
+    """
+    Combines 2 columns with "mm-dd" and "year" into a single column
+    :param mmdd: pd.Series with dates in format "Jan-01"
+    :param year: pd.Series with years
+    :return: pd.Series in format "01-01-2020"
+    """
+
+    months = {'Jan': '01', 'Fev': '02', 'Mar': '03', 'Abr': '04',
+              'Mai': '05', 'Jun': '06', 'Jul': '07', 'Ago': '08',
+              'Set': '09', 'Out': '10', 'Nov': '11', 'Dez': '12'}
+
+    md = mmdd.apply(lambda x: x.strip('"').split('-'))
+    md = md.apply(lambda x: f"{x[1]}-{months[x[0]]}")
+
+    return md + '-' + year
+
+
 def parse_multiple_tabs(text):
     """
     For pages with a multiple tab structure (one tab / Ano)
@@ -55,8 +69,11 @@ def parse_multiple_tabs(text):
         df = parse_single_tab(t)
         year = re.findall('data-value="(\d{4})"\s', t)
         df['Ano'] = year[0]
-        df['Data'] = df.apply(lambda x: '-'.join([x['Ano'], x['Data (mm-dd)'].replace('"', '')]), axis=1)
-        df.drop(columns=['Data (mm-dd)', 'Ano'], inplace=True)
         tmp.append(df)
 
-    return pd.concat(tmp)
+    df = pd.concat(tmp)
+    df['data'] = clean_datas(df['Data (mm-dd)'], df['Ano'])
+    df.drop(columns=['Data (mm-dd)', 'Ano'], inplace=True)
+
+    return df
+
