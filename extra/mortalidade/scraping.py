@@ -1,7 +1,12 @@
 import requests
 from html import unescape
 import re
+from numpy import nan
 import pandas as pd
+
+months = {'Jan': '01', 'Fev': '02', 'Mar': '03', 'Abr': '04',
+          'Mai': '05', 'Jun': '06', 'Jul': '07', 'Ago': '08',
+          'Set': '09', 'Out': '10', 'Nov': '11', 'Dez': '12'}
 
 
 def get_data(section):
@@ -29,9 +34,11 @@ def parse_single_tab(text):
     columns = re.findall('<th>(.+?)<\\\\/th>', text)
 
     df = pd.DataFrame(data).T
-    df.columns =columns
+    df.columns = columns
+    df.replace('null', nan, inplace=True)
 
     return df
+
 
 def parse_multiple_tabs(text):
     """
