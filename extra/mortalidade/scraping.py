@@ -36,6 +36,22 @@ def parse_single_table(text):
     return df
 
 
+def parse_geral(text):
+    """
+    Parses GET response from 'Geral' into a long-format pandas DataFrame
+    :param text: text output of GET request to 'Geral'
+    :return: pd.DataFrame
+    """
+
+    df = parse_single_table(text)
+    df = df.melt(id_vars='Data', var_name='Ano', value_name='mortes')
+    df['data'] = clean_datas(df['Data'], df['Ano'])
+    df.drop(columns=['Data', 'Ano'], inplace=True)
+    df.dropna(inplace=True)
+
+    return df
+
+
 def clean_datas(mmdd, year):
     """
     Combines 2 columns with "mm-dd" and "year" into a single column
