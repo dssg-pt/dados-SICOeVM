@@ -52,6 +52,13 @@ def parse_geral(text):
     return df
 
 
+def find_tabs(text):
+    tabs = re.findall('\<(div\sclass=\"tab-pane?\s?\w*\"\sdata-value=\"20\d\d.+?(?=\/table))',
+                      text, re.DOTALL)
+    return tabs
+
+
+
 def clean_datas(mmdd, year):
     """
     Combines 2 columns with "mm-dd" and "year" into a single column
@@ -77,8 +84,7 @@ def parse_multiyear_tabs(text):
     Returns a single pandas dataframe
     """
 
-    tabs = re.findall('\<(div\sclass=\"tab-pane?\s?\w*\"\sdata-value=\"20\d\d.+?(?=\/table))',
-                      text, re.DOTALL)
+    tabs = find_tabs(text)
 
     tmp = []
     for t in tabs:
@@ -93,3 +99,19 @@ def parse_multiyear_tabs(text):
 
     return df
 
+
+def parse_concelhos(text):
+
+    tabs = find_tabs(text)
+
+    tmp = []
+    for t in tabs:
+        df = parse_single_table(t)
+        df.set_index('Concelho', inplace=True)
+        df = df.T
+        tmp.append(df)
+
+    df = pd.concat(tmp)
+    #TODO clean
+
+    return df
