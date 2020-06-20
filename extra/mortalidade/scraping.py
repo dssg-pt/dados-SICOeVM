@@ -18,7 +18,7 @@ def get_data(section):
     return text
 
 
-def parse_single_tab(text):
+def parse_single_table(text):
     """
     Uses regex to retrieve the data + columns used to create one html table.
     Returns a pandas dataframe
@@ -54,19 +54,19 @@ def clean_datas(mmdd, year):
     return md + '-' + year
 
 
-def parse_multiple_tabs(text):
+def parse_multiyear_tabs(text):
     """
     For pages with a multiple tab structure (one tab / Ano)
     Calls parse_single_tab for each tab, adds a column with the respective year.
     Returns a single pandas dataframe
     """
 
-    tabs = re.findall('\<(div\sclass=\"tab-pane\"\sdata-value=\"20\d\d.+?(?=\/table))',
+    tabs = re.findall('\<(div\sclass=\"tab-pane?\s?\w*\"\sdata-value=\"20\d\d.+?(?=\/table))',
                       text, re.DOTALL)
 
     tmp = []
     for t in tabs:
-        df = parse_single_tab(t)
+        df = parse_single_table(t)
         year = re.findall('data-value="(\d{4})"\s', t)
         df['Ano'] = year[0]
         tmp.append(df)
