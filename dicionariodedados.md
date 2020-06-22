@@ -39,7 +39,6 @@
 | `obitos_ars_acores` | nº de óbitos na ARS açores. Info a partir de 01Jan2014 em "Mortalidade diária -> por região de saúde" | INT >=0 |
 | `obitos_ars_madeira` | nº de óbitos na ARS madeira. Info a partir de 01Jan2014 em "Mortalidade diária -> por região de saúde" | INT >=0 |
 | `obitos_ars_lvt` | nº de óbitos na ARS lvt. Info a partir de 01Jan2014 em "Mortalidade diária -> por região de saúde" | INT >=0 |
-
 | `obitos_aces_alentejocentral` | nº de óbitos na agrupamento centros de saúde Alentejo central. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `obitos_aces_alentejolitoral` | nº de óbitos na agrupamento centros de saúde Alentejo litoral. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `obitos_aces_algarveIcentral` | nº de óbitos na agrupamento centros de saúde Algarve I central. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
