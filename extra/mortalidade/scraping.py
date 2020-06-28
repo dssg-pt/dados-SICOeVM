@@ -111,7 +111,8 @@ def parse_concelhos(text):
         df = df.T
         tmp.append(df)
 
-    df = pd.concat(tmp)
-    #TODO clean
+    df = pd.concat(tmp) #TODO test if columns are the same
+    df.columns = [x.replace('"', '') for x in df.columns]
+    df.index = [x.replace('Semana', '') for x in df.index]
 
     return df
