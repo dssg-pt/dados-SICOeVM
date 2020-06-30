@@ -29,7 +29,7 @@ jobs:
               python -m pip install --upgrade pip
               python -m pip install -r extra/mortalidade/requirements.txt
           - name: Scrap mortality from SICO - eVM
-                run: extra/mortalidade/scraping.py
+            run: python extra/mortalidade/scraping.py
           - name: Commit changes
             uses: stefanzweifel/git-auto-commit-action@v4.1.1
             with:
