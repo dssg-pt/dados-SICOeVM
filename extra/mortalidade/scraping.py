@@ -1,6 +1,7 @@
 import requests
 from html import unescape
 import re
+import datetime
 from numpy import nan
 import pandas as pd
 
@@ -51,9 +52,9 @@ def parse_geral(text):
 
     df = parse_single_table(text)
     df = df.melt(id_vars='Data', var_name='Ano', value_name='Total óbitos')
+    df.dropna(inplace=True)
     df.index = clean_datas(df['Data'], df['Ano'])
     df.drop(columns=['Data', 'Ano'], inplace=True)
-    df.dropna(inplace=True)
 
     return df
 
@@ -84,6 +85,22 @@ def clean_datas(mmdd, year):
 
     return md + '-' + year
 
+
+def create_calendar(start):
+    """
+    Returns a pd.Series with consecutive days between [start] and today
+    """
+
+    dates = []
+    d = datetime.datetime.strptime(start, "%d-%m-%Y")
+
+    while d < datetime.datetime.today():
+        dates.append(d)
+        d += datetime.timedelta(1)
+
+    dates = pd.Series([x.strftime("%d-%m-%Y") for x in dates])
+
+    return dates
 
 def parse_multiyear_tabs(text):
     """
@@ -144,6 +161,9 @@ if __name__ == '__main__':
 
     tables = []
 
+    df = get_data('geral')
+    tables.append(parse_geral(df))
+
     for t in ['causas', 'idades', 'externas']:
         df = get_data(t)
         tables.append(parse_multiyear_tabs(df))
@@ -174,9 +194,10 @@ if __name__ == '__main__':
 
     tables.append(df)
 
-    df = parse_geral(get_data('geral'))
+    df = pd.DataFrame(index=create_calendar(start=tables[0].index[0]),
+                      data=tables[0])
 
-    df = df.join(tables, how='left')
+    df = df.join(tables[1:], how='left')
 
     df = df[: -1] # remove last (current) day
     df.to_csv('mortalidade.csv', index_label='Data', encoding='utf-8')
