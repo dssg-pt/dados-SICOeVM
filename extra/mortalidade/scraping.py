@@ -2,8 +2,9 @@ import requests
 from html import unescape
 import re
 import datetime
-from numpy import nan
+import numpy as np
 import pandas as pd
+import unicodedata
 
 
 def get_data(section):
@@ -38,7 +39,7 @@ def parse_single_table(text):
 
     df = pd.DataFrame(data).T
     df.columns = columns
-    df.replace('null', nan, inplace=True)
+    df.replace('null', np.nan, inplace=True)
 
     return df
 
@@ -51,8 +52,7 @@ def parse_geral(text):
     """
 
     df = parse_single_table(text)
-    df = df.melt(id_vars='Data', var_name='Ano', value_name='Total óbitos')
-    df.dropna(inplace=True)
+    df = df.melt(id_vars='Data', var_name='Ano', value_name='geral_pais')
     df.index = clean_datas(df['Data'], df['Ano'])
     df.drop(columns=['Data', 'Ano'], inplace=True)
 
@@ -60,7 +60,7 @@ def parse_geral(text):
 
 
 def find_tabs(text):
-    tabs = re.findall('\<(div\sclass=\"tab-pane?\s?\w*\"\sdata-value=\"20\d\d.+?(?=\/table))',
+    tabs = re.findall('\<(div\sclass=\"tab-pane?\s?\w*\"\sdata-value=\".+?(?=\/table))',
                       text, re.DOTALL)
     return tabs
 
@@ -126,6 +126,32 @@ def parse_multiyear_tabs(text):
     return df
 
 
+def parse_ars_tabs(text):
+    """
+    For pages with a multiple tab structure (one tab / ARS)
+    Calls parse_single_tab for each tab, adds a column with the respective year.
+    Returns a single pandas dataframe
+    """
+
+    tabs = find_tabs(text)
+
+    tmp = []
+    for t in tabs:
+        df = parse_single_table(t)
+        df = df.melt(id_vars='Data (mm-dd)', var_name='Ano', value_name='Óbitos')
+        df['Data'] = clean_datas(df['Data (mm-dd)'], df['Ano'])
+        df.drop(columns=['Data (mm-dd)', 'Ano'], inplace=True)
+        df.dropna(inplace=True)
+        ARS = re.findall('data-value="(.+)"\s', t)[0]
+        df['ARS'] = ARS
+        tmp.append(df)
+
+    df = pd.concat(tmp)
+    df = df.pivot(index='Data', columns='ARS', values='Óbitos')
+
+    return df
+
+
 def parse_concelhos(text):
     tabs = find_tabs(text)
 
@@ -141,14 +167,52 @@ def parse_concelhos(text):
 
     df = pd.concat(tmp)
 
-    df.columns = [x.replace('"', '') for x in df.columns]
+    df.columns = [simplify_unicode(x.lower()
+                                   .replace('"', ''))
+                  for x in df.columns]
     df.index = [x.replace('Semana', '') for x in df.index]
 
     return df
 
 
-if __name__ == '__main__':
+def simplify_unicode(x):
+    return unicodedata.normalize('NFD', x).encode('ascii', 'ignore').decode()
 
+
+def rename_columns(x, data_source):
+
+    prefixes = {
+        'causas': 'causa',
+        'idades': 'grupoetario',
+        'externas': 'causaexterna',
+        'local': 'local',
+        'distrito': 'distrito',
+        'ACES': 'aces',
+        'ARS': 'ars'
+    }
+
+    if data_source == 'ACES':
+        x = x.replace("ACES ", "")\
+            .replace("CS ", "")
+
+    if data_source == 'idades':
+        x = x.replace('-', 'a')\
+            .replace('<', '')
+
+    if data_source == 'local':
+        x = x.replace('Na Instituic?o de Saude', 'instituicaosaude')\
+            .replace('No domicilio', 'domicilio')
+
+    x = x.lower()\
+        .replace(" ", "")\
+        .replace('"', '')
+
+    x = simplify_unicode(x)
+
+    return f"""{prefixes[data_source]}_{x}"""
+
+
+if __name__ == '__main__':
 
     ### mortalidade_concelhos.csv
 
@@ -156,43 +220,27 @@ if __name__ == '__main__':
     df = parse_concelhos(df)
     df.to_csv('mortalidade_concelhos.csv', index_label='Semana', encoding='utf-8')
 
-
     ### mortalidade.csv
 
     tables = []
 
-    df = get_data('geral')
-    tables.append(parse_geral(df))
+    for t in ['geral', 'idades', 'causas', 'externas', 'local',  'ARS', 'distrito', 'ACES']:
 
-    for t in ['causas', 'idades', 'externas']:
         df = get_data(t)
-        tables.append(parse_multiyear_tabs(df))
 
-    df = get_data('local').\
-        replace('Desconhecido', 'Local desconhecido').\
-        replace('Instituic?o de Saude', 'Instituição de Saúde').\
-        replace('domicilio', 'domicílio')
+        if t == 'geral':
+            df = parse_geral(df)
+        else:
+            if t == 'ARS':
+                df = parse_ars_tabs(df)
+            else:
+                df = parse_multiyear_tabs(df)
+                if t in ['distrito', 'ACES']:
+                    df.rename(str.lower, axis='columns', inplace=True)
+                    df = df.pivot(columns=t.lower(), values='óbitos')
+            df.columns = [rename_columns(x, t) for x in df.columns]
 
-    tables.append(parse_multiyear_tabs(df))
-
-    df = get_data('distrito').\
-        replace('Desconhecido', 'Distrito desconhecido').\
-        replace('Estrangeiro', 'Distrito estrangeiro')
-    df = parse_multiyear_tabs(df)
-    df['Distrito'] = df['Distrito'].apply(lambda x: x.replace('"', ''))
-    df = df.pivot(columns='Distrito', values='Óbitos')
-
-    tables.append(df)
-
-    df = get_data('ACES').\
-        replace('Desconhecido', 'ACES desconhecido').\
-        replace('Estrangeiro', 'ACES estrangeiro').\
-        replace('Pinhal Interior Sul', 'ACES Pinhal Interior Sul')
-    df = parse_multiyear_tabs(df)
-    df['ACES'] = df['ACES'].apply(lambda x: x.replace('"', ''))
-    df = df.pivot(columns='ACES', values='Óbitos')
-
-    tables.append(df)
+        tables.append(df)
 
     df = pd.DataFrame(index=create_calendar(start=tables[0].index[0]),
                       data=tables[0])
