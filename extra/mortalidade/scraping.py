@@ -6,6 +6,7 @@ import datetime
 import numpy as np
 import pandas as pd
 import unicodedata
+import json
 
 import logging
 
@@ -31,44 +32,45 @@ class MortalityReport:
     """
 
     def __init__(self):
-        self.__prepare_report()
+
+        self.json_output = {}
+
         self.responses = []
         self.start_time = datetime.datetime.now()
 
-    def __prepare_report(self):
+    def __write_report(self):
         """
         Creates a file to report the health of the current data scraping
         """
-
         today = datetime.datetime.today().strftime("%Y-%m-%d-%H:%M")
-
         report_path = os.getcwd() + "/extra/mortalidade/reports"
+        report_file = f"{report_path}/report_{today}.json"
+        os.makedirs(os.path.dirname(report_file), exist_ok=True)
 
-        self.report_file = f"{report_path}/report_{today}.txt"
-        os.makedirs(os.path.dirname(self.report_file), exist_ok=True)
+        self.json_output["date"] = today
 
-        with open(self.report_file, "w+") as report:
-            report.write(f"Scrapping date: {today}\n")
+        with open(report_file, "w") as report:
+            json.dump(self.json_output, report, indent=4, sort_keys=True)
 
     def __write_responses_status(self):
 
-        with open(self.report_file, "a") as report:
-            report.write("\n- Verificação de Respostas HTTP:")
-            for response in self.responses:
-                section, res = response
+        http_responses = []
+        for response in self.responses:
+            http_response = {}
+            section, res = response
 
-                report.write(f"\n\tSecção: '{section}'")
-                report.write(
-                    f"\n\t\tRequest: 'https://evm.min-saude.pt/table?t={section}&s=0'"
-                )
-                report.write(f"\n\t\tResponse: [{res.status_code}]")
+            http_response["section"] = section
+            http_response["request"] = f"https://evm.min-saude.pt/table?t={section}&s=0"
+            http_response["response"] = res.status_code
+
+            http_responses.append(http_response)
+        self.json_output["requests"] = http_responses
 
     def __write_process_time(self):
 
         process_time = datetime.datetime.now() - self.start_time
 
-        with open(self.report_file, "a") as report:
-            report.write(f"\n- Tempo dispendido: {process_time}")
+        self.json_output["running_time"] = str(process_time)
 
     def check_all_districts(self, districts):
         """
@@ -91,15 +93,7 @@ class MortalityReport:
                     f"[check_all_districts] Expected district not found: {district}"
                 )
 
-        # Writes into the report
-        with open(self.report_file, "a") as report:
-            report.write("- Verificação de concelhos:")
-            if missing_districts:
-                report.write("\t[FAILED]\n")
-                report.write("\tMissing Districts:\n")
-                report.write(",".join(missing_districts))
-            else:
-                report.write("\t[SUCCESS]")
+        self.json_output["missing_districts"] = missing_districts
 
     def check_get_data(self, section, response):
 
@@ -109,10 +103,21 @@ class MortalityReport:
 
         self.responses.append((section, response))
 
+    def check_parse_geral(self, data):
+        """
+        Check the status of the parsed data from 'geral'
+        """
+
+        null_lines = data[data.isnull().any(axis=1)]
+
+        self.json_output["missing_geral_values"] = list(null_lines.index.values)
+
     def close(self):
 
         self.__write_responses_status()
         self.__write_process_time()
+
+        self.__write_report()
 
 
 class MortalityScrapping:
@@ -237,6 +242,7 @@ class MortalityScrapping:
         df.index = self.__clean_datas(df["Data"], df["Ano"])
         df.drop(columns=["Data", "Ano"], inplace=True)
 
+        self.report.check_parse_geral(df)
         return df
 
     def __find_tabs(self, text):
