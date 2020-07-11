@@ -83,3 +83,5 @@ jobs:
           path: tests/junit/test-concelhos-results.xml
         # Use always() to always run this step to publish test results when there are test failures
         if: always()
+      - name: Scrap mortality from SICO - eVM
+        run: python extra/mortalidade/scraping.py
