@@ -1,12 +1,8 @@
 name: Extract and validate mortality data from 'SICO - eVM'
 
 on:
-    pull_request:
-        branches:
-            - master
-
-#TODO: Move the result CSV file
-#TODO: Run the tests
+    schedule:
+      - cron: "0 */1 * * *"
 
 jobs:
     build:
