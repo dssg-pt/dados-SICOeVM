@@ -103,14 +103,22 @@ class MortalityReport:
 
         self.responses.append((section, response))
 
-    def check_parse_geral(self, data):
+    def check_mortalidade_values(self, data):
         """
         Check the status of the parsed data from 'geral'
         """
 
         null_lines = data[data.isnull().any(axis=1)]
 
-        self.json_output["missing_geral_values"] = list(null_lines.index.values)
+        self.json_output["missing_mortalidade_values"] = list(null_lines.index.values)
+
+    def check_ars_values(self, data):
+        """
+        Check if any ars values has null
+        """
+
+        null_lines = data[data.isnull().any(axis=1)]
+        self.json_output["missing_ars_values"] = list(null_lines.values)
 
     def close(self):
 
@@ -191,6 +199,7 @@ class MortalityScrapping:
         df = df.join(tables[1:], how="left")
 
         df = df[:-1]  # remove last (current) day
+        self.report.check_mortalidade_values(df)
         df.to_csv(csv_export_file, index_label="Data", encoding="utf-8")
 
     def __get_data(self, section):
@@ -242,7 +251,6 @@ class MortalityScrapping:
         df.index = self.__clean_datas(df["Data"], df["Ano"])
         df.drop(columns=["Data", "Ano"], inplace=True)
 
-        self.report.check_parse_geral(df)
         return df
 
     def __find_tabs(self, text):
@@ -347,6 +355,7 @@ class MortalityScrapping:
         df = pd.concat(tmp)
         df = df.pivot(index="Data", columns="ARS", values="Óbitos")
 
+        self.report.check_ars_values(df)
         return df
 
     def __parse_concelhos(self, text):
