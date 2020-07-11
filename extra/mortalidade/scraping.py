@@ -108,7 +108,7 @@ class MortalityReport:
         Check the status of the parsed data from 'geral'
         """
 
-        null_lines = data[data.isnull().any(axis=1)]
+        null_lines = data[data["geral_pais"].isnull()]
 
         self.json_output["missing_mortalidade_values"] = list(null_lines.index.values)
 
