@@ -6,7 +6,6 @@ on:
 
 jobs:
     build:
-        if: startsWith(github.head_ref, 'mortalidade')
         runs-on: ubuntu-latest
         container: python:3
 
