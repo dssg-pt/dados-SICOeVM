@@ -45,7 +45,7 @@
 | `distrito_bragança` | nº de óbitos no distrito de Bragança. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_castelobranco` | nº de óbitos no distrito de Castelo Branco. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_coimbra` | nº de óbitos no distrito de Coimbra. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
-| `distrito_evora` | nº de óbitos no distrito de Évora. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 | _oo_ não está ordenado no ficheir
+| `distrito_evora` | nº de óbitos no distrito de Évora. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_faro` | nº de óbitos no distrito de Faro. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_guarda` | nº de óbitos no distrito de Guarda. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_ilhaterceira` | nº de óbitos no distrito de Ilha Terceira. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
@@ -111,7 +111,7 @@
 | `aces_pinhalinteriornorte` | nº de óbitos na agrupamento centros de saúde Pinhal Interior Norte. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_pinhallitoral` | nº de óbitos na agrupamento centros de saúde Pinhal Litoral. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_sintra` | nº de óbitos na agrupamento centros de saúde Sintra. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
-| `aces_saomamedeulsnortealentejano)` | nº de óbitos na agrupamento centros de saúde São Mamede (ULS Norte Alentejano). Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 | _oo_ falta parenteses
+| `aces_saomamedeulsnortealentejano)` | nº de óbitos na agrupamento centros de saúde São Mamede (ULS Norte Alentejano). Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_tras-os-montes-altotamegaebarroso` | nº de óbitos na agrupamento centros de saúde Trás-os-Montes - Alto Tâmega e Barroso. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_tamegai-baixotamega` | nº de óbitos na agrupamento centros de saúde Tâmega I - Baixo Tâmega. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_tamegaii-valedosousasul` | nº de óbitos na agrupamento centros de saúde Tâmega II - Vale do Sousa Sul. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
