@@ -1,4 +1,4 @@
-# 📔 Dicionário dos dados
+# 📔 Dicionário dos dados (mortalidade.csv)
 
 📝 _ARS_: Administração Regional de Saúde 
 
