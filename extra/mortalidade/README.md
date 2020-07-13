@@ -3,25 +3,24 @@
 Em /extra/mortalidade vão estar todas as sources e dados deste miniprojecto
 
 O repositório está organizado da seguinte forma:
-+ `testes/`: Dados extraídos do site e scripts para realizar testes
-+ `dadosSICO-eVM/` : Dados extraídos automaticamente do site (github actions)  
 
-## Testes
+## subpastas
 
-Contém: 
++ `tests/test_validate_mortality.py`: script com testes básicos para validar fiabilidade dos dados:
+i) ordem das datas -> verificação se data da linha anterior é o dia anterior, em relação ao da linha actual
+ii) colunas -> total de colunas dos ficheiro criados, é igual ao total de colunas identificadas para serem descarregadas
++ `facts/`: factos sobre dados para tentar uma uniformização da leitura dos dados (ex: designação dos concelhos)    
 
-+ `mortalidade_ddmmyyyy.csv`: exemplo de output de dados extraidos do site SICO-eVM para efeitos de testes, agrupadas por dia-mes-ano (DD-MM-YYYY) (consultar dicionário de dados) 
-+ `mortalidade_wkyyyy.csv`: exemplo de output de dados extraidos do site SICO-eVM para efeitos de testes, agrupadas por semana-ano (WK-YYYY) (consultar dicionário de dados)  
+## dados do site SICO-eVM
 
-Nota: outros ficheiros poderão ser criados em função do tipo de agrupamento temporal (...; dia ; semana ; mês; ano; ...) 
+Contém os ficheiros, com os dados extraidos automaticamente do site [SICO-eVM](https://evm.min-saude.pt/#shiny-tab-dashboard) 
 
-## dadosSICO-eVM
++ `mortalidade.csv`: dados gerais de mortalidade, sob diversas perspectivas, agrupados por dia-mes-ano (DD-MM-YYYY). São descarregados todas as madrugadas, os dados até ao dia anterior.
+Dicionário de dados em dicionariodados_mortalidade.md
++ `mortalidade_concelhos.csv`: dados de mortalidade por concelho, agrupados por semana-ano (WK-YYYY). São descarregados todas as madrugadas, os dados até ao dia anterior.
+Dicionário de dados em dicionariodados_mortalidade_concelhos.md
 
-Contém os ficheiros com os dados extraidos automaticamente do site [SICO-eVM](https://evm.min-saude.pt/#shiny-tab-dashboard)
+## outros
 
-+ `dicionariodeados_ddmmyyyy.md` : dicionário de dados com todas as variáveis agrupadas por dia-mes-ano (DD-MM-YYYY)
-+ `dicionariodeados_wkyyyy.md` : dicionário de dados com todas as variáveis agrupadas por semana-ano (WK-YYYY)
-+ `scraping.py` : script python para fazer scraping dos dados e exportá-los para ficheiro(s) .csv 
-
-+ `mortalidade_ddmmyyyy.csv`: output de dados diários (DD-MM-YYYY), extraidos do site (consultar dicionário de dados) 
-+ `mortalidade_wkyyyy.csv`: output de dados semanais (WK-YYYY), extraidos do site (consultar dicionário de dados)
++ `scraping.py` : script python para fazer scraping dos dados e exportá-los para ficheiro(s) mortalidade.csv e mortalidade_concelho.csv
++ `requirements.txt` : dependencias dos pacotes python a instalar
