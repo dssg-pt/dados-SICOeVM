@@ -189,6 +189,7 @@ class MortalityScrapping:
                         df.rename(str.lower, axis="columns", inplace=True)
                         df = df.pivot(columns=t.lower(), values="óbitos")
                 df.columns = [self.__rename_columns(x, t) for x in df.columns]
+                df.columns = df.columns.sort_values()
 
             tables.append(df)
 
@@ -406,7 +407,11 @@ class MortalityScrapping:
         }
 
         if data_source == "ACES":
-            x = x.replace("ACES ", "").replace("CS ", "")
+            x = x.replace("ACES ", "").replace(
+                "CS ", ""
+                ).replace(
+                "saomamedeulsnortealentejano)", "saomamede(ulsnortealentejano)"
+                )
 
         if data_source == "idades":
             x = x.replace("-", "a").replace("<", "")
