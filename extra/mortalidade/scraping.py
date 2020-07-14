@@ -27,7 +27,7 @@ logger.setLevel(logging.INFO)
 
 class MortalityReport:
     """
-    Responsible to create a report file to 
+    Responsible to create a report file to
     write the status of the last scrapping
     """
 
@@ -159,7 +159,7 @@ class MortalityScrapping:
 
     def __get_mortalidade(self, csv_export_file="mortalidade.csv"):
         """
-        Grabs all information regarding mortality 
+        Grabs all information regarding mortality
             exports it to file [csv_export_file]
         """
 
@@ -189,6 +189,7 @@ class MortalityScrapping:
                         df.rename(str.lower, axis="columns", inplace=True)
                         df = df.pivot(columns=t.lower(), values="óbitos")
                 df.columns = [self.__rename_columns(x, t) for x in df.columns]
+                df.columns = df.columns.sort_values()
 
             tables.append(df)
 
@@ -360,7 +361,7 @@ class MortalityScrapping:
 
     def __parse_concelhos(self, text):
         """
-        Parses from a raw text to a Pandas Dataframe type with 
+        Parses from a raw text to a Pandas Dataframe type with
                 all 'concelhos' to be worked on.
 
         :param text: raw html in text
@@ -406,10 +407,18 @@ class MortalityScrapping:
         }
 
         if data_source == "ACES":
-            x = x.replace("ACES ", "").replace("CS ", "")
+            x = x.replace("ACES ", "").replace(
+                "CS ", ""
+                ).replace(
+                "saomamedeulsnortealentejano)", "saomamede(ulsnortealentejano)"
+                )
 
         if data_source == "idades":
-            x = x.replace("-", "a").replace("<", "")
+            x = x.replace("-", "a").replace(
+                "<", ""
+                ).replace(
+                "85", "85+"
+                )
 
         if data_source == "local":
             x = x.replace("Na Instituic?o de Saude", "instituicaosaude").replace(
@@ -427,4 +436,3 @@ if __name__ == "__main__":
 
     scrap = MortalityScrapping()
     scrap.start()
-
