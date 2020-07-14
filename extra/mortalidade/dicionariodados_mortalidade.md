@@ -15,7 +15,7 @@
 | `grupoetario_55a64anos` | nº de óbitos com idades entre os 55 e os 64 anos. Info a partir de 01Jan2014 em "Quadros -> por grupo etário" | INT >=0 |
 | `grupoetario_65a74anos` | nº de óbitos com idades entre os 65 e os 74 anos. Info a partir de 01Jan2014 em "Quadros -> por grupo etário" | INT >=0 |
 | `grupoetario_75a84anos` | nº de óbitos com idades entre os 75 e os 84 anos. Info a partir de 01Jan2014 em "Quadros -> por grupo etário" | INT >=0 |
-| `grupoetario_superior85anos` | nº de óbitos com idades superior a 85 anos. Info a partir de 01Jan2014 em "Quadros -> por grupo etário" | INT >=0 |
+| `grupoetario_85+anos` | nº de óbitos com idades superior a 85 anos. Info a partir de 01Jan2014 em "Quadros -> por grupo etário" | INT >=0 |
 | `grupoetario_desconhecido` | nº de óbitos com idades desconhecida. Info a partir de 01Jan2014 em "Quadros -> por grupo etário" | INT >=0 |
 | `causa_mortenatural` | nº de óbitos por tipo de morte natural. Info a partir de 01Jan2014 em "Mortalidade diária -> por tipo de morte" | INT >=0 |
 | `causa_causaexterna` | nº de óbitos por tipo de morte causa externa. Total (deve) ser igual à soma das variáveis "causaexterna_xxx". Info a partir de 01Jan2014 em "Mortalidade diária -> por causa externa" | INT >=0 |
@@ -45,6 +45,8 @@
 | `distrito_bragança` | nº de óbitos no distrito de Bragança. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_castelobranco` | nº de óbitos no distrito de Castelo Branco. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_coimbra` | nº de óbitos no distrito de Coimbra. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
+| `distrito_desconhecido` | nº de óbitos em distrito desconhecido. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
+| `distrito_estrangeiro` | nº de óbitos no estrangeiro. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_evora` | nº de óbitos no distrito de Évora. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_faro` | nº de óbitos no distrito de Faro. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
 | `distrito_guarda` | nº de óbitos no distrito de Guarda. Info a partir de 01Jan2014 em "Quadro de Regiões -> por distritos" | INT >=0 |
@@ -111,7 +113,7 @@
 | `aces_pinhalinteriornorte` | nº de óbitos na agrupamento centros de saúde Pinhal Interior Norte. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_pinhallitoral` | nº de óbitos na agrupamento centros de saúde Pinhal Litoral. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_sintra` | nº de óbitos na agrupamento centros de saúde Sintra. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
-| `aces_saomamedeulsnortealentejano)` | nº de óbitos na agrupamento centros de saúde São Mamede (ULS Norte Alentejano). Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
+| `aces_saomamede(ulsnortealentejano)` | nº de óbitos na agrupamento centros de saúde São Mamede (ULS Norte Alentejano). Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_tras-os-montes-altotamegaebarroso` | nº de óbitos na agrupamento centros de saúde Trás-os-Montes - Alto Tâmega e Barroso. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_tamegai-baixotamega` | nº de óbitos na agrupamento centros de saúde Tâmega I - Baixo Tâmega. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
 | `aces_tamegaii-valedosousasul` | nº de óbitos na agrupamento centros de saúde Tâmega II - Vale do Sousa Sul. Info a partir de 01Abr2014 em "Quadro de regiões -> ACES" | INT >=0 |
