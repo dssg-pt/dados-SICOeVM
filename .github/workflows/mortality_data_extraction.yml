@@ -22,9 +22,9 @@ jobs:
           - name: Install dependencies
             run: |
               python -m pip install --upgrade pip
-              python -m pip install -r extra/mortalidade/requirements.txt
+              python -m pip install -r scripts/requirements.txt
           - name: Scrap mortality from SICO - eVM
-            run: python extra/mortalidade/scraping.py
+            run: python scripts/scraping.py
           - name: Commit changes
             uses: stefanzweifel/git-auto-commit-action@v4.1.1
             with:
