@@ -1,5 +1,7 @@
 # 😷️ Dados da SICO-eVM (plataforma de vigilância da mortalidade)
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/) 
+
 ## 🤔 Contexto
 Os dados de mortalidade têm uma extrema importância para entender o impacto da pandemia do COVID-19 em Portugal. No [Sistema de Informação dos Certificados de Óbito - e-Vigilância de Mortalidade](https://evm.min-saude.pt/) são disponibilizados dados sobre a mortalidade em Portugal, mas sem uma estrutura e dicionário de dados associados.
 
