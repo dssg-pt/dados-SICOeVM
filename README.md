@@ -5,6 +5,8 @@
 ## 🤔 Contexto
 Os dados de mortalidade têm uma extrema importância para entender o impacto da pandemia do COVID-19 em Portugal. No [Sistema de Informação dos Certificados de Óbito - e-Vigilância de Mortalidade](https://evm.min-saude.pt/) são disponibilizados dados sobre a mortalidade em Portugal, mas sem uma estrutura e dicionário de dados associados.
 
+[Mais informações disponíveis no issue #48.](https://github.com/dssg-pt/covid19pt-data/issues/48)
+
 ## 🥅 Objetivo
 Criar uma pipeline de extração diária de dados do portal SICO-eVM com um dicionário de dados associados.
 
