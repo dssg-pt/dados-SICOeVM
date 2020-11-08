@@ -1,8 +1,8 @@
 name: Extract and validate mortality data from 'SICO - eVM'
 
-on:
-    schedule:
-      - cron: "0 3 * * *"
+on: push
+    #schedule:
+    #  - cron: "0 3 * * *"
 
 jobs:
     build:
