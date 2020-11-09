@@ -1,6 +1,7 @@
 
 import pandas as pd
 from datetime import datetime
+from datetime import date
 import os
 from pathlib import Path
 import tweepy
@@ -35,13 +36,11 @@ def compor_tweets():
     """
     TODO: More complex message.
     """
-
+    today = str(date.today()) 
+    
     # Main tweet
-    tweet_message = (
-        "🆕Dados do portal SICO-eVM atualizados:\n"
-        "https://github.com/dssg-pt/dados-SICOeVM"
-    )
-
+    tweet_message = f"🆕Dados do portal SICO-eVM atualizados para o dia {today} :\n https://github.com/dssg-pt/dados-SICOeVM"
+    
     return tweet_message
 
 def tweet_len(s):
