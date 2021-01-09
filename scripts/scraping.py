@@ -377,9 +377,9 @@ class MortalityScrapping:
             df = df.T
             tmp.append(df)
 
-        assert all(
-            [all(tmp[0].columns == x.columns) for x in tmp]
-        ), "Concelhos are not the same in the different tabs"
+        #assert all(
+        #    [all(tmp[0].columns == x.columns) for x in tmp]
+        #), "Concelhos are not the same in the different tabs"
 
         df = pd.concat(tmp)
 
