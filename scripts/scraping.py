@@ -72,6 +72,12 @@ class MortalityReport:
 
         self.json_output["running_time"] = str(process_time)
 
+    def unmatched_concelhos(self, weeks):
+
+        logger.warning(f"[unmatched_concelhos]: concelhos do not match previous ones in: {weeks}")
+
+        self.json_output["unmatched_concelhos"] = weeks
+
     def check_all_districts(self, districts):
         """
         Checks if all expected districts were collected
@@ -374,12 +380,14 @@ class MortalityScrapping:
         for t in tabs:
             df = self.__parse_single_table(t)
             df.set_index("Concelho", inplace=True)
-            df = df.T
             tmp.append(df)
 
-        #assert all(
-        #    [all(tmp[0].columns == x.columns) for x in tmp]
-        #), "Concelhos are not the same in the different tabs"
+        for i, j in enumerate(tmp):
+            if not tmp[0].index.equals(j.index):
+                self.report.unmatched_concelhos(list(j.columns))
+                tmp[i] = j.reindex(index=tmp[0].index)
+                
+        tmp = [x.T for x in tmp]
 
         df = pd.concat(tmp)
 
