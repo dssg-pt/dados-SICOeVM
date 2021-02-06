@@ -1798,3 +1798,13 @@
 2021-02-05 03:11:40,259 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
 2021-02-05 03:11:48,789 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
 2021-02-05 03:12:21,067 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
+2021-02-06 03:11:12,549 INFO [get_data(concelho)] - Request: 'https://evm.min-saude.pt/table?t=concelho&s=0' | Response: <Response [200]>
+2021-02-06 03:11:12,760 WARNING [unmatched_concelhos]: concelhos do not match previous ones in: ['Semana 53-2020', 'Semana 01-2021', 'Semana 02-2021', 'Semana 03-2021', 'Semana 04-2021', 'Semana 05-2021']
+2021-02-06 03:11:13,766 INFO [get_data(geral)] - Request: 'https://evm.min-saude.pt/table?t=geral&s=0' | Response: <Response [200]>
+2021-02-06 03:11:16,058 INFO [get_data(idades)] - Request: 'https://evm.min-saude.pt/table?t=idades&s=0' | Response: <Response [200]>
+2021-02-06 03:11:17,683 INFO [get_data(causas)] - Request: 'https://evm.min-saude.pt/table?t=causas&s=0' | Response: <Response [200]>
+2021-02-06 03:11:19,311 INFO [get_data(externas)] - Request: 'https://evm.min-saude.pt/table?t=externas&s=0' | Response: <Response [200]>
+2021-02-06 03:11:20,900 INFO [get_data(local)] - Request: 'https://evm.min-saude.pt/table?t=local&s=0' | Response: <Response [200]>
+2021-02-06 03:11:21,739 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
+2021-02-06 03:11:28,883 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
+2021-02-06 03:11:56,070 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
