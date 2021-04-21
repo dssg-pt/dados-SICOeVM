@@ -184,6 +184,9 @@ class MortalityScrapping:
 
             df = self.__get_data(t)
 
+            if df is None:
+                continue
+
             if t == "geral":
                 df = self.__parse_geral(df)
             else:
@@ -219,13 +222,14 @@ class MortalityScrapping:
         response = requests.get(url)
 
         self.report.check_get_data(section, response)
-        assert (
-            response.ok
-        ), f"Cannot get data from {url}: HTTP response code {response.status_code}"
 
-        response.encoding = "utf-8"
-        text = unescape(response.text)
-        return text
+        if not response.ok:
+            return None
+
+        else:
+            response.encoding = "utf-8"
+            text = unescape(response.text)
+            return text
 
     def __parse_single_table(self, text):
         """
