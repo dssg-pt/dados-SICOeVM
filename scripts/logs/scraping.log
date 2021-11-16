@@ -4100,3 +4100,12 @@
 2021-11-15 03:05:08,127 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
 2021-11-15 03:05:14,226 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
 2021-11-15 03:05:36,201 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
+2021-11-16 03:03:43,046 INFO [get_data(concelho)] - Request: 'https://evm.min-saude.pt/table?t=concelho&s=0' | Response: <Response [200]>
+2021-11-16 03:03:44,123 INFO [get_data(geral)] - Request: 'https://evm.min-saude.pt/table?t=geral&s=0' | Response: <Response [200]>
+2021-11-16 03:03:46,116 INFO [get_data(idades)] - Request: 'https://evm.min-saude.pt/table?t=idades&s=0' | Response: <Response [200]>
+2021-11-16 03:03:47,603 INFO [get_data(causas)] - Request: 'https://evm.min-saude.pt/table?t=causas&s=0' | Response: <Response [200]>
+2021-11-16 03:03:48,303 INFO [get_data(externas)] - Request: 'https://evm.min-saude.pt/table?t=externas&s=0' | Response: <Response [500]>
+2021-11-16 03:03:50,058 INFO [get_data(local)] - Request: 'https://evm.min-saude.pt/table?t=local&s=0' | Response: <Response [200]>
+2021-11-16 03:03:52,131 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
+2021-11-16 03:03:58,377 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
+2021-11-16 03:04:20,283 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
