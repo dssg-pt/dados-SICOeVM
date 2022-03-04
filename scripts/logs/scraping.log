@@ -5041,3 +5041,13 @@
 2022-03-03 03:06:38,956 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
 2022-03-03 03:06:47,892 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
 2022-03-03 03:07:20,047 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
+2022-03-04 03:06:58,973 INFO [get_data(concelho)] - Request: 'https://evm.min-saude.pt/table?t=concelho&s=0' | Response: <Response [200]>
+2022-03-04 03:06:59,082 WARNING [unmatched_concelhos]: concelhos do not match previous ones in: ['Semana 52-2021', 'Semana 01-2022', 'Semana 02-2022', 'Semana 03-2022', 'Semana 04-2022', 'Semana 05-2022', 'Semana 06-2022', 'Semana 07-2022', 'Semana 08-2022', 'Semana 09-2022']
+2022-03-04 03:07:00,321 INFO [get_data(geral)] - Request: 'https://evm.min-saude.pt/table?t=geral&s=0' | Response: <Response [200]>
+2022-03-04 03:07:02,934 INFO [get_data(idades)] - Request: 'https://evm.min-saude.pt/table?t=idades&s=0' | Response: <Response [200]>
+2022-03-04 03:07:05,332 INFO [get_data(causas)] - Request: 'https://evm.min-saude.pt/table?t=causas&s=0' | Response: <Response [200]>
+2022-03-04 03:07:06,247 INFO [get_data(externas)] - Request: 'https://evm.min-saude.pt/table?t=externas&s=0' | Response: <Response [500]>
+2022-03-04 03:07:08,436 INFO [get_data(local)] - Request: 'https://evm.min-saude.pt/table?t=local&s=0' | Response: <Response [200]>
+2022-03-04 03:07:11,057 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
+2022-03-04 03:07:19,635 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
+2022-03-04 03:07:51,388 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
