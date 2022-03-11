@@ -198,7 +198,7 @@ class MortalityScrapping:
                         df.rename(str.lower, axis="columns", inplace=True)
                         df = df.pivot(columns=t.lower(), values="óbitos")
                 df.columns = [self.__rename_columns(x, t) for x in df.columns]
-                df.columns = df.columns.sort_values()
+                df = df[sorted(df.columns)]
 
             tables.append(df)
 
