@@ -1,0 +1,71 @@
+{
+    "date": "2022-04-10-04:15",
+    "missing_ars_values": [],
+    "missing_districts": [],
+    "missing_mortalidade_values": [],
+    "requests": [
+        {
+            "request": "https://evm.min-saude.pt/table?t=concelho&s=0",
+            "response": 200,
+            "section": "concelho"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=geral&s=0",
+            "response": 200,
+            "section": "geral"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=idades&s=0",
+            "response": 200,
+            "section": "idades"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=causas&s=0",
+            "response": 200,
+            "section": "causas"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=externas&s=0",
+            "response": 500,
+            "section": "externas"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=local&s=0",
+            "response": 200,
+            "section": "local"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=ARS&s=0",
+            "response": 200,
+            "section": "ARS"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=distrito&s=0",
+            "response": 200,
+            "section": "distrito"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=ACES&s=0",
+            "response": 200,
+            "section": "ACES"
+        }
+    ],
+    "running_time": "0:01:42.725199",
+    "unmatched_concelhos": [
+        "Semana 52-2021",
+        "Semana 01-2022",
+        "Semana 02-2022",
+        "Semana 03-2022",
+        "Semana 04-2022",
+        "Semana 05-2022",
+        "Semana 06-2022",
+        "Semana 07-2022",
+        "Semana 08-2022",
+        "Semana 09-2022",
+        "Semana 10-2022",
+        "Semana 11-2022",
+        "Semana 12-2022",
+        "Semana 13-2022",
+        "Semana 14-2022"
+    ]
+}
