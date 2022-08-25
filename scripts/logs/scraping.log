@@ -6559,3 +6559,12 @@
 2022-08-24 04:48:55,182 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
 2022-08-24 04:49:04,070 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
 2022-08-24 04:49:35,146 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
+2022-08-25 04:50:28,706 INFO [get_data(concelho)] - Request: 'https://evm.min-saude.pt/table?t=concelho&s=0' | Response: <Response [200]>
+2022-08-25 04:50:30,020 INFO [get_data(geral)] - Request: 'https://evm.min-saude.pt/table?t=geral&s=0' | Response: <Response [200]>
+2022-08-25 04:50:32,892 INFO [get_data(idades)] - Request: 'https://evm.min-saude.pt/table?t=idades&s=0' | Response: <Response [200]>
+2022-08-25 04:50:34,855 INFO [get_data(causas)] - Request: 'https://evm.min-saude.pt/table?t=causas&s=0' | Response: <Response [200]>
+2022-08-25 04:50:35,718 INFO [get_data(externas)] - Request: 'https://evm.min-saude.pt/table?t=externas&s=0' | Response: <Response [500]>
+2022-08-25 04:50:38,170 INFO [get_data(local)] - Request: 'https://evm.min-saude.pt/table?t=local&s=0' | Response: <Response [200]>
+2022-08-25 04:50:40,933 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
+2022-08-25 04:50:51,233 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
+2022-08-25 04:51:28,641 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
