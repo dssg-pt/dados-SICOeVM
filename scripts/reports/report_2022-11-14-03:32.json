@@ -1,0 +1,54 @@
+{
+    "date": "2022-11-14-03:32",
+    "missing_ars_values": [],
+    "missing_districts": [],
+    "missing_mortalidade_values": [],
+    "requests": [
+        {
+            "request": "https://evm.min-saude.pt/table?t=concelho&s=0",
+            "response": 200,
+            "section": "concelho"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=geral&s=0",
+            "response": 200,
+            "section": "geral"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=idades&s=0",
+            "response": 200,
+            "section": "idades"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=causas&s=0",
+            "response": 200,
+            "section": "causas"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=externas&s=0",
+            "response": 500,
+            "section": "externas"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=local&s=0",
+            "response": 200,
+            "section": "local"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=ARS&s=0",
+            "response": 200,
+            "section": "ARS"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=distrito&s=0",
+            "response": 200,
+            "section": "distrito"
+        },
+        {
+            "request": "https://evm.min-saude.pt/table?t=ACES&s=0",
+            "response": 200,
+            "section": "ACES"
+        }
+    ],
+    "running_time": "0:00:57.439881"
+}
