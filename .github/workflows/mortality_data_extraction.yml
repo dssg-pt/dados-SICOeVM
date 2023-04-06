@@ -25,6 +25,8 @@ jobs:
               python -m pip install -r scripts/requirements.txt
           - name: Scrap mortality from SICO - eVM
             run: python scripts/scraping.py
+          - name: Set safe directory
+            run: git config --global --add safe.directory /__w/dados-SICOeVM/dados-SICOeVM
           - name: Commit changes
             uses: stefanzweifel/git-auto-commit-action@v4.1.1
             with:
