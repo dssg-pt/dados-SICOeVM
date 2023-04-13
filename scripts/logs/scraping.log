@@ -7942,3 +7942,13 @@
 2023-04-12 04:01:40,880 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
 2023-04-12 04:01:50,714 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
 2023-04-12 04:02:23,479 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
+2023-04-13 04:01:31,624 INFO [get_data(concelho)] - Request: 'https://evm.min-saude.pt/table?t=concelho&s=0' | Response: <Response [200]>
+2023-04-13 04:01:31,730 WARNING [unmatched_concelhos]: concelhos do not match previous ones in: ['Semana 52-2022', 'Semana 01-2023', 'Semana 02-2023', 'Semana 03-2023', 'Semana 04-2023', 'Semana 05-2023', 'Semana 06-2023', 'Semana 07-2023', 'Semana 08-2023', 'Semana 09-2023', 'Semana 10-2023', 'Semana 11-2023', 'Semana 12-2023', 'Semana 13-2023', 'Semana 14-2023', 'Semana 15-2023']
+2023-04-13 04:01:32,319 INFO [get_data(geral)] - Request: 'https://evm.min-saude.pt/table?t=geral&s=0' | Response: <Response [200]>
+2023-04-13 04:01:35,258 INFO [get_data(idades)] - Request: 'https://evm.min-saude.pt/table?t=idades&s=0' | Response: <Response [200]>
+2023-04-13 04:01:37,897 INFO [get_data(causas)] - Request: 'https://evm.min-saude.pt/table?t=causas&s=0' | Response: <Response [200]>
+2023-04-13 04:01:38,723 INFO [get_data(externas)] - Request: 'https://evm.min-saude.pt/table?t=externas&s=0' | Response: <Response [500]>
+2023-04-13 04:01:41,415 INFO [get_data(local)] - Request: 'https://evm.min-saude.pt/table?t=local&s=0' | Response: <Response [200]>
+2023-04-13 04:01:44,284 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
+2023-04-13 04:01:54,976 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
+2023-04-13 04:02:32,698 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
