@@ -8132,3 +8132,13 @@
 2023-05-11 04:01:57,564 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
 2023-05-11 04:02:07,645 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
 2023-05-11 04:02:42,527 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
+2023-05-13 04:01:29,093 INFO [get_data(concelho)] - Request: 'https://evm.min-saude.pt/table?t=concelho&s=0' | Response: <Response [200]>
+2023-05-13 04:01:29,227 WARNING [unmatched_concelhos]: concelhos do not match previous ones in: ['Semana 52-2022', 'Semana 01-2023', 'Semana 02-2023', 'Semana 03-2023', 'Semana 04-2023', 'Semana 05-2023', 'Semana 06-2023', 'Semana 07-2023', 'Semana 08-2023', 'Semana 09-2023', 'Semana 10-2023', 'Semana 11-2023', 'Semana 12-2023', 'Semana 13-2023', 'Semana 14-2023', 'Semana 15-2023', 'Semana 16-2023', 'Semana 17-2023', 'Semana 18-2023', 'Semana 19-2023']
+2023-05-13 04:01:31,116 INFO [get_data(geral)] - Request: 'https://evm.min-saude.pt/table?t=geral&s=0' | Response: <Response [200]>
+2023-05-13 04:01:34,790 INFO [get_data(idades)] - Request: 'https://evm.min-saude.pt/table?t=idades&s=0' | Response: <Response [200]>
+2023-05-13 04:01:38,083 INFO [get_data(causas)] - Request: 'https://evm.min-saude.pt/table?t=causas&s=0' | Response: <Response [200]>
+2023-05-13 04:01:39,584 INFO [get_data(externas)] - Request: 'https://evm.min-saude.pt/table?t=externas&s=0' | Response: <Response [500]>
+2023-05-13 04:01:42,836 INFO [get_data(local)] - Request: 'https://evm.min-saude.pt/table?t=local&s=0' | Response: <Response [200]>
+2023-05-13 04:01:46,408 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
+2023-05-13 04:01:58,120 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
+2023-05-13 04:02:39,440 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
