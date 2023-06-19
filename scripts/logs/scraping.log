@@ -8292,3 +8292,13 @@
 2023-06-16 04:02:40,994 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
 2023-06-16 04:02:49,281 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
 2023-06-16 04:03:18,339 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
+2023-06-19 04:02:22,811 INFO [get_data(concelho)] - Request: 'https://evm.min-saude.pt/table?t=concelho&s=0' | Response: <Response [200]>
+2023-06-19 04:02:22,917 WARNING [unmatched_concelhos]: concelhos do not match previous ones in: ['Semana 52-2022', 'Semana 01-2023', 'Semana 02-2023', 'Semana 03-2023', 'Semana 04-2023', 'Semana 05-2023', 'Semana 06-2023', 'Semana 07-2023', 'Semana 08-2023', 'Semana 09-2023', 'Semana 10-2023', 'Semana 11-2023', 'Semana 12-2023', 'Semana 13-2023', 'Semana 14-2023', 'Semana 15-2023', 'Semana 16-2023', 'Semana 17-2023', 'Semana 18-2023', 'Semana 19-2023', 'Semana 20-2023', 'Semana 21-2023', 'Semana 22-2023', 'Semana 23-2023', 'Semana 24-2023', 'Semana 25-2023']
+2023-06-19 04:02:24,228 INFO [get_data(geral)] - Request: 'https://evm.min-saude.pt/table?t=geral&s=0' | Response: <Response [200]>
+2023-06-19 04:02:27,336 INFO [get_data(idades)] - Request: 'https://evm.min-saude.pt/table?t=idades&s=0' | Response: <Response [200]>
+2023-06-19 04:02:30,046 INFO [get_data(causas)] - Request: 'https://evm.min-saude.pt/table?t=causas&s=0' | Response: <Response [200]>
+2023-06-19 04:02:31,440 INFO [get_data(externas)] - Request: 'https://evm.min-saude.pt/table?t=externas&s=0' | Response: <Response [500]>
+2023-06-19 04:02:34,072 INFO [get_data(local)] - Request: 'https://evm.min-saude.pt/table?t=local&s=0' | Response: <Response [200]>
+2023-06-19 04:02:37,314 INFO [get_data(ARS)] - Request: 'https://evm.min-saude.pt/table?t=ARS&s=0' | Response: <Response [200]>
+2023-06-19 04:02:47,210 INFO [get_data(distrito)] - Request: 'https://evm.min-saude.pt/table?t=distrito&s=0' | Response: <Response [200]>
+2023-06-19 04:03:20,480 INFO [get_data(ACES)] - Request: 'https://evm.min-saude.pt/table?t=ACES&s=0' | Response: <Response [200]>
